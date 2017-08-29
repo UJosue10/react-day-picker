@@ -264,3 +264,26 @@ declare class DayPicker extends React.Component<DayPicker.Props, never> {
 }
 
 export = DayPicker;
+
+declare namespace DayPickerInput {
+  interface Props {
+    value?: string;
+    format?: string | string[];
+    dayPickerProps?: DayPicker.Props;
+    classNames?: DayPicker.ClassNames;
+    onDayChange?(day: Date, modifiers: DayPicker.Modifiers): void;
+    onChange?(event: React.ChangeEvent<HTMLInputElement>): void;
+    onClick?(event: React.MouseEvent<HTMLInputElement>): void;
+    onFocus?(event: React.FocusEvent<HTMLInputElement>): void;
+    onBlur?(event: React.FocusEvent<HTMLInputElement>): void;
+    onKeyUp?(event: React.KeyboardEvent<HTMLInputElement>): void;
+  }
+}
+
+declare class DayPickerInput extends React.Component<DayPickerInput.Props, any> {
+  showDayPicker(): void;
+
+  hideDayPicker(): void;
+
+  hideAfterDayClick(): void;
+}
